@@ -105,17 +105,26 @@ class JoystickLayer {
         // reposition & resize the new element accordingly
         newL.height = this.radius * 2;
         newL.width = this.radius * 2;
+        let layerRect = e.target.getBoundingClientRect();
         if (e.type.includes("touch")){
             let touches = e.changedTouches;
             for (let touches of e.changedTouches){
                 // console.log(touches);
-                newL.style.top = (touches.pageY - this.radius) + 'px';
-                newL.style.left = (touches.pageX - this.radius) + 'px';
+                let touchX = touches.pageX - layerRect.left;
+                let touchY = touches.pageY - layerRect.top;
+                touchX = Math.max(this.radius, Math.min(layerRect.right - this.radius, touchX));
+                touchY = Math.max(this.radius, Math.min(layerRect.bottom - this.radius, touchY));
+                newL.style.top = (touchY - this.radius) + 'px';
+                newL.style.left = (touchX - this.radius) + 'px';
             }
         }
         else{
-            newL.style.top = (e.pageY - this.radius) + 'px';
-            newL.style.left = (e.pageX - this.radius) + 'px';
+            let touchX = e.pageX - layerRect.left;
+            let touchY = e.pageY - layerRect.top;
+            touchX = Math.max(this.radius, Math.min(layerRect.right - this.radius, touchX));
+            touchY = Math.max(this.radius, Math.min(layerRect.bottom - this.radius, touchY));
+            newL.style.top = (touchY - this.radius) + 'px';
+            newL.style.left = (touchX - this.radius) + 'px';
         }
         // add new joystick's canvas element to triggering element as a child
         e.target.appendChild(newL); // add the new canvas element to the page
