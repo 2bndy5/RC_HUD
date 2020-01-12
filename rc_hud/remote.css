@@ -1,0 +1,54 @@
+
+#camera-stream-wrapper{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#turn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 80);
+    height: 80;
+}
+
+#speed{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: calc(100% - 80);
+    width: 80;
+}
+
+.joystick-layer{
+    position: absolute;
+    top:0;
+    left:0;
+    padding: 80px;
+    height: 100%;
+    width: 100%;
+}
+
+.joystick{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 160px;
+    width: 160px;
+}
+
+#compass{
+    position: absolute;
+    top: 0;
+    left: 30%;
+    height: 80px;
+    width: 40%;
+}
+
+#controls-layer{
+    position: absolute;
+    top: 0;
+    height: 100%; /* 53% */
+    width: 100%;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: hidden;">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>test remote</title>
+        <link rel="stylesheet" type="text/css" href="bulma.min.css">
+        <link rel="stylesheet" type="text/css" href="remote.css">
+    </head>
+
+    <body class="has-background-dark">
+        <div>
+            <!-- camera feed -->
+            <figure id="camera-stream-wrapper">
+                <!-- the actual image -->
+                <img id="camera-stream" class="is-4by3 camera-stream-view" src="cam_placeholder.png"></img>
+            </figure>
+
+            <!-- the controls and HUD stuff -->
+            <section id="controls-layer">
+                <!-- the joystick(s) layer -->
+                <div class="joystick-layer has-text-primary" id="joystick-layer"></div>
+                <!-- the left side bar for buttons/displays -->
+                <!-- drop down menu for different kinds of remotes -->
+                <div class="control">
+                    <div class="select is-warning">
+                        <select class="has-background-black-bis has-text-success" id="selectRemote">
+                            <option>Tank Drive</option>
+                            <option>Mecanum Drive</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- the speed slider -->
+                <canvas class="slider-vertical has-text-success" id="speed"></canvas>
+                <!-- the turn slider -->
+                <canvas class="slider has-text-info" id="turn"></canvas>
+                <!-- the compass -->
+                <canvas class="compass" id="compass"></canvas>
+            </section>
+        </div>
+
+        <script src="slider.js"></script>
+        <script src="joystick.js"></script>
+        <script src="controller.js"></script>
+        <script>initRemote();</script>
+    </body>
+</html>
