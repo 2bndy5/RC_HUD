@@ -34,8 +34,8 @@ function sendSpeedTurnValues(gamepadAxes = []) {
         }
         // now set turn & speed accordingly
         if (vals.length > 1){
-            speed = vals[(vals[1].left < vals[0].left ? 1 : 0)].x;
-            turn = vals[(vals[1].left < vals[0].left ? 0 : 1)].y;
+            speed = vals[(vals[1].left < vals[0].left ? 1 : 0)].y;
+            turn = vals[(vals[1].left < vals[0].left ? 0 : 1)].x;
         }
         else {
             speed = vals[0].radius;

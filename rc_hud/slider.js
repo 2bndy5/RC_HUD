@@ -101,20 +101,17 @@ class Slider {
         this.value = this.horizontal ? mouseX : mouseY;
     }
     touchStart = e => {
-        if (e.target == this.canvas){
-            for (let touches of e.changedTouches)
+        for (let touches of e.changedTouches)
             this.stick.manip = touches.identifier;
-        }
         getTouchPos(e);
         e.preventDefault();// prevent canceling this event
     }
     touchEnd = e => {
         // this removes the canvas element from the page
         getTouchPos(e);
-        if (e.target == this.canvas){
-            this.stick.manip = null;
-            this.value = 0;
-        }
+        this.stick.manip = null;
+        this.value = 0;
+        e.preventDefault();// prevent canceling this event
     }
     getTouchPos = e => {
         for (let touch of e.changedTouches) {
