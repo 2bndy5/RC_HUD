@@ -101,7 +101,7 @@ class Slider {
         this.value = this.horizontal ? mouseX : mouseY;
     }
     touchStart = e => {
-        for (let touches of e.changedTouches)
+        for (let touches of e.touches)
             this.stick.manip = touches.identifier;
         getTouchPos(e);
         e.preventDefault();// prevent canceling this event
@@ -114,7 +114,7 @@ class Slider {
         e.preventDefault();// prevent canceling this event
     }
     getTouchPos = e => {
-        for (let touch of e.changedTouches) {
+        for (let touch of e.touches) {
             let touchX = touch.clientX;
             let touchY = touch.clientY;
 

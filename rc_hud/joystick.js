@@ -107,8 +107,8 @@ class JoystickLayer {
         newL.width = this.radius * 2;
         let layerRect = e.target.getBoundingClientRect();
         if (e.type.includes("touch")){
-            let touches = e.changedTouches;
-            for (let touches of e.changedTouches){
+            let touches = e.touches;
+            for (let touches of e.touches){
                 // console.log(touches);
                 let touchX = touches.pageX - layerRect.left;
                 let touchY = touches.pageY - layerRect.top;
@@ -132,8 +132,8 @@ class JoystickLayer {
         // instantiate the joystick object on the new canvas (also does `Joystick.draw()`)
         // and save for later manipulations
         if (e.type.includes("touch")){
-            // console.log("touches Total: " + e.changedTouches.length);
-            for (let touches of e.changedTouches){
+            // console.log("touches Total: " + e.touches.length);
+            for (let touches of e.touches){
                 // console.log("touch joystick added using id:", touches[i].identifier);
                 this.joysticks[touches.identifier] = new Joystick(newL, inheritedColor);
             }
@@ -162,7 +162,7 @@ class JoystickLayer {
         e.preventDefault();// prevent canceling this event
     }
     getTouchPos = e => {
-        for (let touch of e.changedTouches) {
+        for (let touch of e.touches) {
             let touchX = touch.clientX;
             let touchY = touch.clientY;
 
