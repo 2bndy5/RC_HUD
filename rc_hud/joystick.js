@@ -148,12 +148,12 @@ class JoystickLayer {
         this.getTouchPos(e);
         e.preventDefault();// prevent canceling this event
     }
-    touchEnd = e =>{
+    touchEnd = e => {
         let touchIDs = [];
         for (let touch of e.touches)
             touchIDs.push(touch.identifier);
         for (let key in this.joysticks){
-            if (!(key in touchIDs) || !touchIDs.length) {
+            if (!(key in touchIDs)) {
                 // found joystick artifact; now remove it
                 this.joysticks[key].value = [null, null];
                 delete this.joysticks[key];
